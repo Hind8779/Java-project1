@@ -1,5 +1,9 @@
 package CodingTaskPart1;
 
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+
 public class class1 {
     public static void main(String[] args) {
         //1. Create a program that uses an array to store a list of temperatures for
@@ -62,7 +66,7 @@ public class class1 {
         for (int H = 0; H < array.length; H++) {
             for (int y = 0; y < array[H].length; y++) {
                 if (array[H][y] % 2 == 0) {
-                    evsum+= array[H][y];
+                    evsum += array[H][y];
 
                 } else {
                     odsum += array[H][y];
@@ -71,30 +75,118 @@ public class class1 {
             }
 
         }
-        System.out.println("\nthe sum of even" +" "+ evsum);
-        System.out.println("the sum of odd" +" "+ odsum);
+        System.out.println("\nthe sum of even" + " " + evsum);
+        System.out.println("the sum of odd" + " " + odsum);
         System.out.println("\n==========================================================================>>");
 
 //5. Write a program to swap 2 numbers without a temporary variable?
-        int x=10;
-        int y=20;
-        System.out.println("x="+x);
-        System.out.println("y="+y);
+        int x = 10;
+        int y = 20;
+        System.out.println("x=" + x);
+        System.out.println("y=" + y);
         //after swapping
-        x=x+y;
-        y=x-y;
-        x=x-y;
-        System.out.println("x after swapping "+x);
-        System.out.println("y after swapping "+y);
+        x = x + y;
+        y = x - y;
+        x = x - y;
+        System.out.println("x after swapping " + x);
+        System.out.println("y after swapping " + y);
 
         System.out.println("\n============================================================================");
+//6. Write a java program to check whether a given number is prime or
+//not?
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("please enter a number");
+        int input = scanner.nextInt();
+        boolean numIsPrime = true;
+        for (int i = 2; i <input; i++) {
+            if(input%i==0)
+            numIsPrime = false;
+            break;
 
+        }
 
+        if (numIsPrime){
+            System.out.println(input+" is a prime number");
+        }else{
+            System.out.println(input+" is not a prime number");
 
+        }
+        System.out.println("==========================================================================");
+//7. Write a Java Program to print the first 10 numbers of Fibonacci series.
+ int n=10;
+        int[] fibonacci = new int[n];
+        fibonacci[0] = 0;
+        fibonacci[1] = 1;
 
+        for (int i = 2; i <n ; i++) {
+            fibonacci[i]=fibonacci[i-1]+fibonacci[i-2];
 
+        }
+        System.out.println("Fibonacci Series:");
+        for (int i = 0; i <n ; i++) {
+            System.out.println(fibonacci[i]+"");
+        }
+        System.out.println("=======================================================================");
+//8. Maximum and minimum number in the array?
+        int[] numbers = {10, 4, 2, 9, 7};
+        int maxi =numbers [0];
+        int min = numbers[0];;
+        for (int i = 1; i <numbers.length ; i++) {
+            if(numbers[i]>maxi){
+
+                maxi=numbers[i];
+            }
+            if(numbers[i]<min){
+                min=numbers[i];
+            }
+        }
+        System.out.println("Maximum number:"+maxi);
+        System.out.println("Minimum number: "+min);
+        System.out.println("===============================================================================");
+
+//9. Write a java program to find the second largest number in the array?
+        int[] hi = {10, 4, 2, 9, 7};
+
+        int largest = hi[0];
+        int secondLargest = hi[0];
+
+        for (int i = 1; i < hi.length; i++) {
+            if (hi[i] > largest) {
+                secondLargest = largest;
+                largest = hi[i];
+            } else if (hi[i] > secondLargest) {
+                secondLargest = hi[i];
+            }
+        }
+
+        System.out.println("The second largest number in the array is " + secondLargest);
+        System.out.println("==============================================================================");
+//10. Write a program to print out duplicate elements from an Array of
+//Strings?
+        String[] fruit = {"apple", "banana", "orange", "apple", "grape", "banana"};
+        Set<String> seen = new HashSet<>();
+        Set<String> duplicates = new HashSet<>();
+
+        for (String element : fruit) {
+            if (seen.contains(element)) {
+                duplicates.add(element);
+            } else {
+                seen.add(element);
+            }
+        }
+
+        System.out.println("The duplicate elements are: " + duplicates);
+        System.out.println("===================================================Then End========================");
     }
 }
+
+
+
+
+
+
+
+
 
 
 
