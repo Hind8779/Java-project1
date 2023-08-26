@@ -148,32 +148,38 @@ public class class1 {
 //9. Write a java program to find the second largest number in the array?
         int[] hi = {10, 4, 2, 9, 7};
 
-        int largest = hi[0];
-        int secondLargest = hi[0];
+        int largest = 0;
+        int secondLargest = 0;
 
-        if (hi.length >= 2) {
-            int secondMax = hi[hi.length - 2];
-            System.out.println("second max:" + secondMax);
-        } else {
-            System.out.println("hi doesnt have a second maximum");
+        for (int i = 0; i < hi.length ; i++) {
+            if (hi[i] > largest) {
+                secondLargest = largest;
+                largest = hi[i];
+            } else if (hi[i] > secondLargest && hi[i] != largest) {
+                secondLargest = hi[i];
+            }
         }
+        System.out.println(secondLargest);
+
+
         System.out.println("==============================================================================");
 
 
         //10. Write a program to print out duplicate elements from an Array of
 //Strings?
 
-            String[] strings = {"apple", "banana", "cucumber", "apple", "banana"};
+            String[] fru = {"apple", "banana", "cucumber", "apple", "banana"};
 
-            HashSet<String> set = new HashSet<>();
-            for (String string : strings) {
-                if (set.contains(string)) {
-                    System.out.println(string);
-                } else {
-                    set.add(string);
+           String dup="";
+        for (int i = 0; i < fru.length ; i++) {
+            for (int j = 0; j < fru.length ; j++) {
+                if(fru[i].equals(fru[j])){
+                    dup=fru[i];
+
+            }
             }
         }
-
+        System.out.println(dup);
         System.out.println("============================Done===========================================");
 
     }
